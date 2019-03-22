@@ -4,6 +4,7 @@ import sys
 
 camera = PiCamera()
 camera.resolution = (1024, 768)
+camera.rotation = 180
 
 # Camera warm-up time
 sleep(1)
