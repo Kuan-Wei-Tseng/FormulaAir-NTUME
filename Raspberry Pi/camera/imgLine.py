@@ -9,7 +9,7 @@ gimg = cv2.cvtColor(img,cv2.COLOR_BGR2GRAY)
 # Noise Removal with 5*5 Gaussian Low Pass Filter
 cimg = cv2.GaussianBlur(gimg, (5, 5), 0)
 # Binarize the image using Automatic thresholding. (Otsu's method)
-ret,bimg = cv.threshold(cimg,0,255,cv.THRESH_BINARY+cv.THRESH_OTSU)
+ret,bimg = cv2.threshold(cimg,0,255,cv2.THRESH_BINARY+cv2.THRESH_OTSU)
 # Remove the residual noise left in the binary image by Morphological Opening
 oimg = cv2.morphologyEx(bimg, cv2.MORPH_OPEN, kernel)
 
