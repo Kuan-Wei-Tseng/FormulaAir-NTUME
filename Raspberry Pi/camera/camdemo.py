@@ -50,6 +50,8 @@ while (True):
 
 			cv2.rectangle(img, (Lpt-15, height-15),(Rpt+15, height+15) , (228, 255, 109), 2)
 			midpoints.append(midpoint)
+		else:
+			midpoints.append(240)
 
 	print (time.perf_counter()-t0)	
 	cv2.imshow('My Image', img)
