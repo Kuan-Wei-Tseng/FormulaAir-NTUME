@@ -54,7 +54,7 @@ while (True):
 	print (time.perf_counter()-t0)	
 	cv2.imshow('My Image', img)
   	if cv2.waitKey(300) & 0xFF == ord('q'):
-    	break
+  		break
 
 cv2.destroyAllWindows()
 #cv2.imwrite('marked.bmp',img)
