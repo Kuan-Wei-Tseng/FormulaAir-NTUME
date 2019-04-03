@@ -40,6 +40,10 @@ class findline:
 			cut = oimg[h].astype(np.int16)
 			df = np.diff(cut)
 			points = np.where(np.logical_or(df > 200, df < -200))
+			print(i)
+			print('len of points[0]')
+			print(len(points[0])
+
 			if len(points) > 0 and len(points[0]) == 2 and abs(self.midpoints[r]-int((points[0][0] + points[0][1]) / 2)) <= self.tol:
 				Lpt = points[0][0]
 				Rpt = points[0][1]
@@ -52,10 +56,6 @@ class findline:
 				block = oimg[h-5:h+5].astype(np.int16)
 				proj = np.sum(block,0)
 				u = np.where(proj== min(proj))[0]
-				print(i)
-				print('self.midpoints')
-				print(self.midpoints)
-				print(self.midpoints[r])
 				u = abs(u - self.midpoints[r])
 
 				midpoint = np.argmin(u)
