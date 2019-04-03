@@ -52,7 +52,7 @@ class findline:
 				proj = np.sum(block,0)
 				u = np.where(proj== min(proj))[0]
 				print(i)
-				print(midpoints[i])
+				print(self.midpoints[i])
 				u = abs(u - self.midpoints[i])
 
 				midpoint = np.argmin(u)
