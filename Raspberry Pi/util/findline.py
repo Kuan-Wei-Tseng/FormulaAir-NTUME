@@ -34,12 +34,13 @@ class findline:
 		self.midpoints.append(stdev)
 
 		for i in range(0,self.num):
+			r = len(self.midpoints)-1
 			self.needcheck = False
 			h = self.xs[i]
 			cut = oimg[h].astype(np.int16)
 			df = np.diff(cut)
 			points = np.where(np.logical_or(df > 200, df < -200))
-			if len(points) > 0 and len(points[0]) == 2 and abs(self.midpoints[i]-int((points[0][0] + points[0][1]) / 2)) <= self.tol:
+			if len(points) > 0 and len(points[0]) == 2 and abs(self.midpoints[r]-int((points[0][0] + points[0][1]) / 2)) <= self.tol:
 				Lpt = points[0][0]
 				Rpt = points[0][1]
 				midpoint = int((points[0][0] + points[0][1]) / 2)
@@ -54,11 +55,11 @@ class findline:
 				print(i)
 				print('self.midpoints')
 				print(self.midpoints)
-				print(self.midpoints[i])
-				u = abs(u - self.midpoints[i])
+				print(self.midpoints[r])
+				u = abs(u - self.midpoints[r])
 
 				midpoint = np.argmin(u)
-				if abs(self.midpoints[i]-midpoint) > self.tol:
+				if abs(self.midpoints[r]-midpoint) > self.tol:
 					print('Cannot find the black line!')
 					continue
 
