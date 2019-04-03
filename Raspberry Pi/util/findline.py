@@ -40,7 +40,7 @@ class findline:
 			df = np.diff(cut)
 			points = np.where(np.logical_or(df > 200, df < -200))
 			midpoint = int((points[0][0] + points[0][1]) / 2)
-			if len(points) > 0 and len(points[0]) == 2 and abs(self.midpoints[i-1]-midpoint) <= self.tol: d
+			if len(points) > 0 and len(points[0]) == 2 and abs(self.midpoints[i-1]-midpoint) <= self.tol:
 				Lpt = points[0][0]
 				Rpt = points[0][1]
 			else:
@@ -62,8 +62,8 @@ class findline:
 			cv2.circle(self._img, (self.CENTER, h), 8, (255,0,0), -1)
 
 			if not self.needcheck:
-				cv2.circle(_img, (Lpt, h), 5, (0,0,255), -1)	
-				cv2.circle(_img, (Rpt, h), 5, (0,0,255), -1)
+				cv2.circle(self._img, (Lpt, h), 5, (0,0,255), -1)	
+				cv2.circle(self._img, (Rpt, h), 5, (0,0,255), -1)
 				cv2.rectangle(self._img, (Lpt-15, h-15),(Rpt+15, h+15) , (228, 255, 109), 2)
 			else:
 				cv2.rectangle(self._img, (midpoint-20, h-15),(midpoint+20, h+15) , (228, 255, 109), 2)
