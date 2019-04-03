@@ -56,11 +56,13 @@ class findline:
 				u = abs(u - self.midpoints[i])
 
 				midpoint = np.argmin(u)
-				if abs(self.midpoints[i-1]-midpoint) > self.tol:
+				if abs(self.midpoints[i]-midpoint) > self.tol:
 					print('Cannot find the black line!')
 					continue
 
 			self.midpoints.append(midpoint)
+			print('lenth of midpoints:')
+			print(len(midpoint))
 			cv2.circle(self._img, (midpoint, h), 8, (0,255,0), -1)
 			cv2.circle(self._img, (self.CENTER, h), 8, (255,0,0), -1)
 
