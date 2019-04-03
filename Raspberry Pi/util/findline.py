@@ -25,7 +25,7 @@ class findline:
 		self.tol = config.tol
 		self.CENTER = config.CENTER
 
-	def markline(self,stdev=240):
+	def markline(self,stdev=300):
 		t0 = time.perf_counter()
 		gimg = cv2.cvtColor(self._img,cv2.COLOR_BGR2GRAY)
 		cimg = cv2.GaussianBlur(gimg, (5, 5), 0)
@@ -46,7 +46,7 @@ class findline:
 			print('len of points[0]',len(points[0]))
 
 
-			if len(points) > 0 and len(points[0]) == 2 and abs(self.midpoints[r]-int((points[0][0] + points[0][1]) / 2)) <= self.tol:
+			if len(points) > 0 and len(points[0]) == 2 and abs(self.midpoints[r]-(points[0][0] + points[0][1])/2) <= self.tol:
 				Lpt = points[0][0]
 				Rpt = points[0][1]
 				midpoint = int((points[0][0] + points[0][1]) / 2)
