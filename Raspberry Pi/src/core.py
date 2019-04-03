@@ -26,7 +26,7 @@ class core:
 		#cv2.imwrite('test.bmp',img)
 
 	def demonstration(self):
-		time.sleep(0.5)
+		time.sleep(2)
 		while True:
 			img = self.myCamera.capture()
 			self.myFinder = findline(img)
