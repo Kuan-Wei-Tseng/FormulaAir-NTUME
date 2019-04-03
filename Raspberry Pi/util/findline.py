@@ -42,6 +42,7 @@ class findline:
 			if len(points) > 0 and len(points[0]) == 2 and abs(self.midpoints[i]-int((points[0][0] + points[0][1]) / 2)) <= self.tol:
 				Lpt = points[0][0]
 				Rpt = points[0][1]
+				midpoint = int((points[0][0] + points[0][1]) / 2)
 			else:
 				self.needcheck = True
 				print('Need to Confirm')
