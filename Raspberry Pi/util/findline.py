@@ -26,36 +26,39 @@ class findline:
 
 	def markline(self,stdev=240):
 		t0 = time.perf_counter()
-		gimg = cv2.cvtColor(_img,cv2.COLOR_BGR2GRAY)
+		gimg = cv2.cvtColor(self._img,cv2.COLOR_BGR2GRAY)
 		cimg = cv2.GaussianBlur(gimg, (5, 5), 0)
 		ret,bimg = cv2.threshold(cimg,100,255,cv2.THRESH_BINARY)
 		oimg = cv2.morphologyEx(bimg, cv2.MORPH_OPEN, self.kernel)
 		self.midpoints = []
-		self.midpoints.append(stddev)
+		self.midpoints.append(stdev)
 
-		for i in range(0,NUMofCUT):
+		for i in range(0,self.num):
 			self.needcheck = False
 			h = self.xs[i]
-			cut1 = oimg[h].astype(np.int16)
+			cut = oimg[h].astype(np.int16)
 			df = np.diff(cut)
 			points = np.where(np.logical_or(df > 200, df < -200))
 
-			if len(points) > 0 and len(points[0]) == 2 and abs(midpoints[i-1]-midpoint) <= tol:
+			if len(points) > 0 and len(points[0]) == 2 and abs(self.midpoints[i-1]-midpoint) <= self.tol:
 				midpoint = int((points[0][0] + points[0][1]) / 2)
 				Lpt = points[0][0]
 				Rpt = points[0][1]
 			else:
 				self.needcheck = True
+				print('Need to Confirm')
 
 			if self.needcheck:
 				block = oimg[h-5:h+5].astype(np.int16)
 				proj = np.sum(block,0)
 				u = np.where(proj== min(proj))[0]
-				u = abs(u - midpoints[i])
+				u = abs(u - self.midpoints[i])
 				midpoint = np.argmin(u)
-				if abs(midpoints[i-1]-midpoint) > tol:
+				if abs(self.midpoints[i-1]-midpoint) > self.tol:
+					print('Cannot find the black line!')
 					continue
 
+			self.midpoints.append(midpoint)
 			cv2.circle(self._img, (midpoint, h), 8, (0,255,0), -1)
 			cv2.circle(self._img, (self.CENTER, h), 8, (255,0,0), -1)
 

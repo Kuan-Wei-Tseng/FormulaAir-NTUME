@@ -19,17 +19,23 @@ class core:
 		self.myCamera.activate()
 		
 		if not mode:
-			demonstration()
+			self.demonstration()
 		
+		#time.sleep(1)
 		#img = self.myCamera.capture()
 		#cv2.imwrite('test.bmp',img)
 
 	def demonstration(self):
+		time.sleep(0.5)
 		while True:
 			img = self.myCamera.capture()
 			self.myFinder = findline(img)
 			self.pts,self.mimg = self.myFinder.markline()
-			cv2.imshow(self.pts)
+			cv2.imshow('demo',self.mimg)
+			if cv2.waitKey(1) == 27:
+				break
+		cv2.destroyAllWindows()
+
 
 
 			
