@@ -52,6 +52,8 @@ class findline:
 				proj = np.sum(block,0)
 				u = np.where(proj== min(proj))[0]
 				print(i)
+				print('self.midpoints')
+				print(self.midpoints)
 				print(self.midpoints[i])
 				u = abs(u - self.midpoints[i])
 
@@ -61,8 +63,6 @@ class findline:
 					continue
 
 			self.midpoints.append(midpoint)
-			print('lenth of midpoints:')
-			print(len(self.midpoints))
 			cv2.circle(self._img, (midpoint, h), 8, (0,255,0), -1)
 			cv2.circle(self._img, (self.CENTER, h), 8, (255,0,0), -1)
 
