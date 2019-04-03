@@ -21,6 +21,7 @@ class findline:
 		self.RES = config.RES
 		self.num = config.NUMofCUT
 		self.xs =  config.CUTHEIGHT
+		print('cut:',xs)
 		self.tol = config.tol
 		self.CENTER = config.CENTER
 
