@@ -20,7 +20,7 @@ class findline:
 		self._img = np.copy(img)
 		self.RES = config.RES
 		self.num = config.NUMofCUT
-		self.xs =  np.copy(config.CUTHEIGHT)
+		self.xs =  config.CUTHEIGHT
 		self.tol = config.tol
 		self.CENTER = config.CENTER
 
@@ -41,6 +41,7 @@ class findline:
 			df = np.diff(cut)
 			points = np.where(np.logical_or(df > 200, df < -200))
 			print('iteration = ',i)
+			print('CUTHEIGHT: =', h)
 			print('len of points[0]',len(points[0]))
 
 
