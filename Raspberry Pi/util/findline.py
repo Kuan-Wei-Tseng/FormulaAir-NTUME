@@ -42,7 +42,7 @@ class findline:
 			points = np.where(np.logical_or(df > 200, df < -200))
 			print(i)
 			print('len of points[0]')
-			print(len(points[0])
+			print(len(points[0]))
 
 			if len(points) > 0 and len(points[0]) == 2 and abs(self.midpoints[r]-int((points[0][0] + points[0][1]) / 2)) <= self.tol:
 				Lpt = points[0][0]
