@@ -39,9 +39,8 @@ class findline:
 			cut = oimg[h].astype(np.int16)
 			df = np.diff(cut)
 			points = np.where(np.logical_or(df > 200, df < -200))
-
-			if len(points) > 0 and len(points[0]) == 2 and abs(self.midpoints[i-1]-midpoint) <= self.tol:
-				midpoint = int((points[0][0] + points[0][1]) / 2)
+			midpoint = int((points[0][0] + points[0][1]) / 2)
+			if len(points) > 0 and len(points[0]) == 2 and abs(self.midpoints[i-1]-midpoint) <= self.tol: d
 				Lpt = points[0][0]
 				Rpt = points[0][1]
 			else:
