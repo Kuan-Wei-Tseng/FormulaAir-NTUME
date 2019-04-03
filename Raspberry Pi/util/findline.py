@@ -51,7 +51,10 @@ class findline:
 				block = oimg[h-5:h+5].astype(np.int16)
 				proj = np.sum(block,0)
 				u = np.where(proj== min(proj))[0]
+				print(i)
+				print(midpoints[i])
 				u = abs(u - self.midpoints[i])
+
 				midpoint = np.argmin(u)
 				if abs(self.midpoints[i-1]-midpoint) > self.tol:
 					print('Cannot find the black line!')
