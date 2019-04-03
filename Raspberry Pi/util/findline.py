@@ -62,7 +62,7 @@ class findline:
 
 			self.midpoints.append(midpoint)
 			print('lenth of midpoints:')
-			print(len(midpoints))
+			print(len(self.midpoints))
 			cv2.circle(self._img, (midpoint, h), 8, (0,255,0), -1)
 			cv2.circle(self._img, (self.CENTER, h), 8, (255,0,0), -1)
 
