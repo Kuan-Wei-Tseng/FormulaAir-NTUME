@@ -10,7 +10,7 @@ import os
 
 sys.path.append(os.path.abspath('..'))
 from dev.fastcamera import camera
-from util.findline import findline2
+from util.findline2 import findline2
 
 class core:
 	# Object constructor:
