@@ -68,7 +68,7 @@ class findline2:
 					x = input('Save? 1 = Yes.')
 					if x == '1':
 						naming = 'debugger' + str(i) + '.bmp'
-						cv2.imwrite(self._img,naming)
+						cv2.imwrite(naming,self._img)
 						print('Debug image saved')
 					continue
 
