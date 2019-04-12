@@ -11,7 +11,7 @@ import os
 sys.path.append(os.path.abspath('..'))
 from config import config
 
-class findline:
+class findline2:
 	# class memebers:
 	kernel = np.ones((3,3), np.uint8)
 
