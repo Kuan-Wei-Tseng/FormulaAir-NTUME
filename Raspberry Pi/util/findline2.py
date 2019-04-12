@@ -66,7 +66,7 @@ class findline2:
 				if abs(self.midpoints[r]-midpoint) > self.tol:
 					print('Cannot find the black line!')
 					x = input('Save? 1 = Yes.')
-					if x == 1:
+					if x == '1':
 						naming = 'debugger' + str(i) + '.bmp'
 						cv2.imwrite(self._img,naming)
 						print('Debug image saved')
