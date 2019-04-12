@@ -18,6 +18,7 @@ class findline2:
 	# Object constructor:
 	def __init__(self,img):
 		self._img = np.copy(img)
+		self._raw = np.copy(img)
 		self.RES = config.RES
 		self.num = config.NUMofCUT
 		self.xs =  config.CUTHEIGHT
@@ -68,7 +69,9 @@ class findline2:
 					x = input('Save? 1 = Yes.')
 					if x == '1':
 						naming = 'debugger' + str(i) + '.bmp'
+						namer = 'rawimage' + str(i) +'.bmp'
 						cv2.imwrite(naming,self._img)
+						cv2.imwrite(namer,self._raw)
 						print('Debug image saved')
 					continue
 
