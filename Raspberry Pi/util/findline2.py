@@ -65,6 +65,11 @@ class findline2:
 				midpoint = np.argmin(u)
 				if abs(self.midpoints[r]-midpoint) > self.tol:
 					print('Cannot find the black line!')
+					x = input('Save? 1 = Yes.')
+					if x == 1:
+						naming = 'debugger' + str(i) + '.bmp'
+						cv2.imwrite(self._img,naming)
+						print('Debug image saved')
 					continue
 
 			self.midpoints.append(midpoint)
@@ -77,11 +82,6 @@ class findline2:
 				cv2.rectangle(self._img, (Lpt-15, h-15),(Rpt+15, h+15) , (228, 255, 109), 2)
 			else:
 				cv2.rectangle(self._img, (midpoint-20, h-15),(midpoint+20, h+15) , (228, 255, 109), 2)
-				x = input('Save? 1 = Yes.')
-				if x == 1:
-					naming = 'tester' + str(i) + '.bmp'
-					cv2.imwrite(self._img,naming)
-					print('Debug image saved')
 
 			cv2.imshow('viewer',self._img)
 			cv2.waitKey(0)
