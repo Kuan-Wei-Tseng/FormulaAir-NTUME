@@ -13,7 +13,7 @@ from config import config
 
 class findline2:
 	# class memebers:
-	kernel = np.ones((3,3), np.uint8)
+	kernel = np.ones((7,7), np.uint8)
 
 	# Object constructor:
 	def __init__(self,img):
@@ -32,6 +32,7 @@ class findline2:
 		cimg = cv2.GaussianBlur(gimg, (5, 5), 0)
 		ret,bimg = cv2.threshold(cimg,100,255,cv2.THRESH_BINARY)
 		oimg = cv2.morphologyEx(bimg, cv2.MORPH_OPEN, self.kernel)
+		oimg = cv2.morphologyEx(oimg, cv2.MORPH_CLOSE,self.kernel)
 		self.midpoints = []
 		self.midpoints.append(stdev)
 

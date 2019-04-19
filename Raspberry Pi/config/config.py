@@ -10,3 +10,6 @@ CUTHEIGHT = np.linspace(RES[1]-10,20,num = NUMofCUT).astype(int)
 # Percentage of tolerance when detecting unexpected points:
 tol = 0.3 * RES[0]
 CENTER = int(RES[0]/2)
+# Servo Motor settings
+SERVO_PIN = 17
+PWM_FREQ = 50
