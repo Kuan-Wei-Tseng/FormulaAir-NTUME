@@ -10,8 +10,8 @@ import os
 
 sys.path.append(os.path.abspath('..'))
 from dev.fastcamera import camera
-from util.findline2 import findline2
-# from util.car import car
+from dev.car import car
+from util.findline2 import findline
 
 class core:
 	# Object constructor:
@@ -30,7 +30,7 @@ class core:
 		time.sleep(2)
 		while True:
 			img = self.myCamera.capture()
-			self.myFinder = findline2(img)
+			self.myFinder = findline(img)
 			self.pts,self.mimg = self.myFinder.markline()
 			cv2.imshow('demo',self.mimg)
 			if cv2.waitKey(0) == 27:

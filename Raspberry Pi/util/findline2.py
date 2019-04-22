@@ -11,7 +11,7 @@ import os
 sys.path.append(os.path.abspath('..'))
 from config import config
 
-class findline2:
+class findline:
 	# class memebers:
 	kernel = np.ones((7,7), np.uint8)
 
@@ -22,15 +22,15 @@ class findline2:
 		self.RES = config.RES
 		self.num = config.NUMofCUT
 		self.xs =  config.CUTHEIGHT
-		print('cut:',self.xs)
+		# print('cut:',self.xs)
 		self.tol = config.tol
 		self.CENTER = config.CENTER
 
-	def markline(self,stdev=300):
+	def markline(self, stdev=300):
 		t0 = time.perf_counter()
 		gimg = cv2.cvtColor(self._img,cv2.COLOR_BGR2GRAY)
 		cimg = cv2.GaussianBlur(gimg, (5, 5), 0)
-		ret,bimg = cv2.threshold(cimg,100,255,cv2.THRESH_BINARY)
+		ret,bimg = cv2.threshold(cimg,90,255,cv2.THRESH_BINARY)
 		oimg = cv2.morphologyEx(bimg, cv2.MORPH_OPEN, self.kernel)
 		oimg = cv2.morphologyEx(oimg, cv2.MORPH_CLOSE,self.kernel)
 		self.midpoints = []
@@ -45,8 +45,7 @@ class findline2:
 			points = np.where(np.logical_or(df > 200, df < -200))
 			print('iteration = ',i)
 			print('CUTHEIGHT: =', h)
-			print('len of points[0]',len(points[0]))
-
+			print('len of points[0]: ',len(points[0]))
 
 			if len(points) > 0 and len(points[0]) == 2 and abs(self.midpoints[r]-(points[0][0] + points[0][1])/2) <= self.tol:
 				Lpt = points[0][0]
@@ -59,12 +58,14 @@ class findline2:
 				print('Need to Confirm')
 
 			if self.needcheck:
-				block = oimg[h-5:h+5].astype(np.int16)
-				proj = np.sum(block,0)
-				u = np.where(proj== min(proj))[0]
-				u = abs(u - self.midpoints[r])
+				cut = cimg[h].astype(np.int16)
+				cut[cut > 150] = 150
+				df = np.diff(cut)
+				Lpt = np.where(df > 8)
+				Rpt = np.where(df < -8)
+				RR = len(Rpt[0])-1
+				midpoint = int((Lpt[0][0]+Rpt[0][RR])/2)
 
-				midpoint = np.argmin(u)
 				if abs(self.midpoints[r]-midpoint) > self.tol:
 					print('Cannot find the black line!')
 					x = input('Save? 1 = Yes.')
