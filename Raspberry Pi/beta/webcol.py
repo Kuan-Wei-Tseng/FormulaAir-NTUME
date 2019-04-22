@@ -14,6 +14,7 @@ while True:
 		fname = name + str(i) + '.bmp'
 		cv2.imwrite(fname,frame)
 		i = i + 1
+		print("capture image number: ",i)
 		continue
 	if i > 20:
 		break
