@@ -11,7 +11,7 @@ import os
 sys.path.append(os.path.abspath('..'))
 from dev.fastcamera import camera
 from util.findline2 import findline2
-from util.car import car
+# from util.car import car
 
 class core:
 	# Object constructor:
