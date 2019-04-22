@@ -24,7 +24,7 @@ class car:
 		angle = val
 		if val > 90:
 			angle = 90;
-		else if val < -90:
+		elif val < -90:
 			angle = -90;
 		self.DC = self.ang2pwm(angle)
 		self.pwm.ChangeDutyCycle(self.DC)
