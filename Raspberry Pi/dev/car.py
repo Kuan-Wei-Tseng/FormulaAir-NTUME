@@ -2,7 +2,7 @@
 # This is the class definition for "car"
 # which provides user interface for steering.
 
-import RPI.GPIO as GPIO
+import RPi.GPIO as GPIO
 import time
 
 sys.path.append(os.path.abspath('..'))
