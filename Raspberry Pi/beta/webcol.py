@@ -13,8 +13,8 @@ while True:
 	if cv2.waitKey(1) & 0xFF == ord('q'):
 		fname = name + str(i) + '.bmp'
 		cv2.imwrite(fname,frame)
+		i = i + 1
 		continue
-	i = i+1
 	if i > 20:
 		break
 
