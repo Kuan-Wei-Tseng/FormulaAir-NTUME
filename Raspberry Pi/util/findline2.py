@@ -59,12 +59,15 @@ class findline:
 
 			if self.needcheck:
 				cut = cimg[h].astype(np.int16)
-				cut[cut > 150] = 150
+				cut[cut > 160] = 160
 				df = np.diff(cut)
-				Lpt = np.where(df > 8)
-				Rpt = np.where(df < -8)
-				RR = len(Rpt[0])-1
-				midpoint = int((Lpt[0][0]+Rpt[0][RR])/2)
+				Lpt = np.where(df < -8)
+				Rpt = np.where(df > 8)
+				if len(Lpt[0]) < 1 or len(Rpt[0]) <1:
+					midpoint = np.argmin(cut)
+				else:
+					RR = len(Rpt[0])-1
+					midpoint = int((Lpt[0][0]+Rpt[0][RR])/2)
 
 				if abs(self.midpoints[r]-midpoint) > self.tol:
 					print('Cannot find the black line!')
