@@ -14,8 +14,6 @@ img = cv2.imread(fname)
 sys.path.append(os.path.abspath('..'))
 from util.findline2 import findline
 
-cv2.imshow('test',img)
-cv2.waitKey(1000)
-
 worker = findline(img)
-worker.markline()
+pts,img = worker.detectline()
+worker.markline(pts)

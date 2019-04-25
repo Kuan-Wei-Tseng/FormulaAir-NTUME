@@ -40,8 +40,6 @@ class findline3:
 			cut = cimg[h].astype(np.int16)
 			cut[cut > 150] = 150
 			df = np.diff(cut)
-			if i == 8:
-				print(df)
 			Lpt = np.where(df > 8)
 			Rpt = np.where(df < -8)
 			RR = len(Rpt[0])-1

@@ -26,7 +26,7 @@ class findline:
 		self.tol = config.tol
 		self.CENTER = config.CENTER
 
-	def markline(self, stdev=300):
+	def detectline(self, stdev=300):
 		t0 = time.perf_counter()
 		gimg = cv2.cvtColor(self._img,cv2.COLOR_BGR2GRAY)
 		cimg = cv2.GaussianBlur(gimg, (5, 5), 0)
@@ -47,11 +47,18 @@ class findline:
 			print('CUTHEIGHT: =', h)
 			print('len of points[0]: ',len(points[0]))
 
-			if len(points) > 0 and len(points[0]) == 2 and abs(self.midpoints[r]-(points[0][0] + points[0][1])/2) <= self.tol:
-				Lpt = points[0][0]
-				Rpt = points[0][1]
-				midpoint = int((points[0][0] + points[0][1]) / 2)
-				print('Safe')
+			if len(points) > 0 and len(points[0]) == 2:
+				if i == 0:
+					Lpt = points[0][0]
+					Rpt = points[0][1]
+					midpoint = int((points[0][0] + points[0][1]) / 2)
+					print('Safe')
+				else:
+					if abs(self.midpoints[r]-(points[0][0] + points[0][1])/2) <= self.tol:
+						Lpt = points[0][0]
+						Rpt = points[0][1]
+						midpoint = int((points[0][0] + points[0][1]) / 2)
+						print('Safe')
 
 			else:
 				self.needcheck = True
@@ -81,6 +88,7 @@ class findline:
 					continue
 
 			self.midpoints.append(midpoint)
+			'''
 			cv2.circle(self._img, (midpoint, h), 8, (0,255,0), -1)
 			cv2.circle(self._img, (self.CENTER, h), 8, (255,0,0), -1)
 
@@ -93,9 +101,25 @@ class findline:
 
 			cv2.imshow('viewer',self._img)
 			cv2.waitKey(0)
+			'''
 
 		print (time.perf_counter()-t0)
 		return self.midpoints, self._img
+
+	def markline(self,pts):
+		for i in range(0,self.num):
+			h = self.xs[i]
+			midpoint = pts[i]
+			cv2.circle(self._img, (midpoint, h), 8, (0,255,0), -1)
+
+		cv2.imshow('viewer',self._img)
+		cv2.waitKey(0)
+		x = input('filename:')
+		if x == '0':
+			return
+		fname = '/Users/wayne/Desktop/'+x+'.bmp'
+		cv2.imwrite(fname,self._img)
+
 
 
 

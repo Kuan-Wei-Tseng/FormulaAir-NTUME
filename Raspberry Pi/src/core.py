@@ -31,7 +31,7 @@ class core:
 		while True:
 			img = self.myCamera.capture()
 			self.myFinder = findline(img)
-			self.pts,self.mimg = self.myFinder.markline()
+			self.pts,self.mimg = self.myFinder.detectline()
 			cv2.imshow('demo',self.mimg)
 			if cv2.waitKey(0) == 27:
 				break
