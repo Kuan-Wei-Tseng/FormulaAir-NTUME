@@ -21,10 +21,24 @@ class core:
 		
 		if not mode:
 			self.demonstration()
+		else:
+			self.run()
 		
 		#time.sleep(1)
 		#img = self.myCamera.capture()
 		#cv2.imwrite('test.bmp',img)
+
+	def run(self):
+		time.sleep(2)
+		counter = 0
+		while True:
+			img = self.myCamera.capture()
+			self.myFinder = findline(img)
+			self.pts,self.mimg = self.myFinder.detectline()
+			print(self.pts)
+			counter = counter + 1
+			if counter > 10:
+				break;
 
 	def demonstration(self):
 		time.sleep(2)
@@ -32,6 +46,7 @@ class core:
 			img = self.myCamera.capture()
 			self.myFinder = findline(img)
 			self.pts,self.mimg = self.myFinder.detectline()
+			self.myFinder.markline(pts)
 			cv2.imshow('demo',self.mimg)
 			if cv2.waitKey(0) == 27:
 				break

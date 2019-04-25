@@ -116,7 +116,7 @@ class findline:
 		cv2.waitKey(0)
 		x = input('filename:')
 		if x == '0':
-			return
+			return 
 		fname = '/Users/wayne/Desktop/'+x+'.bmp'
 		cv2.imwrite(fname,self._img)
 

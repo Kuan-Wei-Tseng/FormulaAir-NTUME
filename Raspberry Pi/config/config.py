@@ -13,3 +13,5 @@ CENTER = int(RES[0]/2)
 # Servo Motor settings
 SERVO_PIN = 17
 PWM_FREQ = 50
+DEVNAME = '/dev/ttyUSB0'
+cmdlist = [0,1]
