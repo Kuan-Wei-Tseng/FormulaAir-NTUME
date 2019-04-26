@@ -48,7 +48,7 @@ class core:
 			self.pts,self.mimg = self.myFinder.detectline()
 			self.myFinder.markline(self.pts)
 			cv2.imshow('demo',self.mimg)
-			if cv2.waitKey(0) == 27:
+			if cv2.waitKey(200) == 27:
 				break
 		cv2.destroyAllWindows()
 
