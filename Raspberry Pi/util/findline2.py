@@ -114,6 +114,7 @@ class findline:
 
 		cv2.imshow('viewer',self._img)
 		cv2.waitKey(0)
+		return self._img
 		'''
 		x = input('filename:')
 		if x == '0':

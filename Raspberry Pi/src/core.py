@@ -46,9 +46,9 @@ class core:
 			img = self.myCamera.capture()
 			self.myFinder = findline(img)
 			self.pts,self.mimg = self.myFinder.detectline()
-			self.myFinder.markline(self.pts)
+			self.mimg = self.myFinder.markline(self.pts)
 			cv2.imshow('demo',self.mimg)
-			if cv2.waitKey(1000) & 0xFF == ord('q'):
+			if cv2.waitKey(0) == 27:
 				break
 		cv2.destroyAllWindows()
 
