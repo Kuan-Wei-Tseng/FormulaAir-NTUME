@@ -12,9 +12,11 @@ sys.path.append(os.path.abspath('..'))
 from dev.fastcamera import camera
 from dev.car import car
 from util.findline2 import findline
+from util.bbcontrol import control
 
 class core:
 	# Object constructor:
+	maploc = 0
 	def __init__(self,mode):
 		self.myCamera = camera()
 		self.myCamera.activate()

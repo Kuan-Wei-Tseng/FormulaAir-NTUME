@@ -11,7 +11,7 @@ CUTHEIGHT = np.linspace(RES[1]-10,20,num = NUMofCUT).astype(int)
 tol = 0.3 * RES[0]
 CENTER = int(RES[0]/2)
 # Servo Motor settings
-SERVO_PIN = 17
+SERVO_PIN = 27
 PWM_FREQ = 50
 DEVNAME = '/dev/ttyUSB0'
 cmdlist = [0,1]
