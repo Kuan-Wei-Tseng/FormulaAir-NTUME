@@ -24,10 +24,6 @@ class car:
 
 	def setdir(self, val = 0):
 		angle = val
-		if val > 90:
-			angle = 90;
-		elif val < -90:
-			angle = -90;
 		self.DC = self.ang2pwm(angle)
 		self.pwm.ChangeDutyCycle(self.DC)
 
