@@ -112,8 +112,8 @@ class findline:
 			midpoint = pts[i]
 			cv2.circle(self._img, (midpoint, h), 8, (0,255,0), -1)
 
-		cv2.imshow('viewer',self._img)
-		cv2.waitKey(0)
+		#cv2.imshow('viewer',self._img)
+		#cv2.waitKey(0)
 		return self._img
 		'''
 		x = input('filename:')
