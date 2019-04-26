@@ -37,8 +37,8 @@ class core:
 			self.pts,self.mimg = self.myFinder.detectline()
 			print(self.pts)
 			counter = counter + 1
-			if counter > 10:
-				break;
+			if counter > 20:
+				break
 
 	def demonstration(self):
 		time.sleep(2)
@@ -48,7 +48,7 @@ class core:
 			self.pts,self.mimg = self.myFinder.detectline()
 			self.myFinder.markline(self.pts)
 			cv2.imshow('demo',self.mimg)
-			if cv2.waitKey(200) == 27:
+			if cv2.waitKey(1000) & 0xFF == ord('q'):
 				break
 		cv2.destroyAllWindows()
 
