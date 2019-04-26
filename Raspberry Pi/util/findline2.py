@@ -75,6 +75,7 @@ class findline:
 				else:
 					RR = len(Rpt[0])-1
 					midpoint = int((Lpt[0][0]+Rpt[0][RR])/2)
+				'''
 
 				if abs(self.midpoints[r]-midpoint) > self.tol:
 					print('Cannot find the black line!')
@@ -86,6 +87,7 @@ class findline:
 						cv2.imwrite(namer,self._raw)
 						print('Debug image saved')
 					continue
+				'''
 
 			self.midpoints.append(midpoint)
 			'''
