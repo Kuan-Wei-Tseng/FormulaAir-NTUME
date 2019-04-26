@@ -23,7 +23,7 @@ class car:
 		return DC
 
 	def setdir(self, val = 0):
-		angle = val
+		angle = val + 30
 		self.DC = self.ang2pwm(angle)
 		self.pwm.ChangeDutyCycle(self.DC)
 
