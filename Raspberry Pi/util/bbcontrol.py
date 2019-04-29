@@ -16,9 +16,9 @@ class control:
 			# npts = self.outlier_reject(pts[1:])
 			npts = pts[1:]
 			devi = np.mean(npts) - 320
-			if devi < 20 and devi > -20:
+			if devi < 40 and devi > -40:
 				lev = 0
-			elif devi < -20:
+			elif devi < -40:
 				lev = -1
 			else:
 				lev = 1
