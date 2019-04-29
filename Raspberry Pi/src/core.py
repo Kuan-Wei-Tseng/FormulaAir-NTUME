@@ -52,7 +52,7 @@ class core:
 			self.myFinder = findline(img)
 			self.pts,self.mimg = self.myFinder.detectline()
 			print(self.pts)
-			dev = self.mycontrol.detlevel(self.pts,maploc)
+			dev = self.mycontrol.detlevel(self.pts,self.maploc)
 			print(dev)
 			mycar.setlev(dev)
 			self.mimg = self.myFinder.markline(self.pts)
