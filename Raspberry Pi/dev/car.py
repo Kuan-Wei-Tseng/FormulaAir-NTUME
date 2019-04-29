@@ -35,7 +35,7 @@ class car:
 		elif lev == 1:
 			self.setdir(145)
 			print('Set servo to turn right')
-		elseL
+		else:
 			self.setdir(115)
 			print('Set servo to turn left')
 
