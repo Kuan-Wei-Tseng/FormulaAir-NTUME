@@ -54,7 +54,7 @@ class core:
 			print(self.pts)
 			dev = self.mycontrol.detlevel(self.pts,self.maploc)
 			print(dev)
-			mycar.setlev(dev)
+			self.mycar.setlev(dev)
 			self.mimg = self.myFinder.markline(self.pts)
 			cv2.imshow('demo',self.mimg)
 			if cv2.waitKey(0) == 27:
