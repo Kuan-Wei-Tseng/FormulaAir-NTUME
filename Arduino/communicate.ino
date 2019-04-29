@@ -1,0 +1,13 @@
+int r = 1;
+
+void setup(){
+  Serial.begin(9600);
+}
+
+void loop(){
+  if(Serial.available()){
+    r = r * (Serial.read() - '0');
+    Serial.println(r);
+    if 
+  }
+}
