@@ -9,7 +9,7 @@ class control:
 
 	def __init__(self):
 
-	def detlevel(pts,mapcond):
+	def detlevel(self, pts, mapcond):
 		lev = 0
 		if mapcond == 0:
 			npts = self.outlier_reject(pts[1:])
@@ -22,7 +22,7 @@ class control:
 				lev = 1
 		return lev
 
-	def outlier_reject(pts,tol = 2.):
+	def outlier_reject(self,pts,tol = 2.):
 		d = np.abs(data - np.median(data))
 		mdev = np.median(d)
 		s = d/(mdev if mdev else 1.)
