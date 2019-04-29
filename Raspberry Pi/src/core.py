@@ -56,13 +56,14 @@ class core:
 			print(dev)
 			self.mycar.setlev(dev)
 			self.mimg = self.myFinder.markline(self.pts)
+			'''
 			cv2.imshow('demo',self.mimg)
 			if cv2.waitKey(0) == 27:
 				break
 			#x = input('Save the image?')
 			counter = counter + 1
 			#fname = '/home/pi/Desktop/debugimg' + str(counter) + '.bmp'
-			'''
+			
 			if x == '1':
 				cv2.imwrite(fname,img)
 			'''
