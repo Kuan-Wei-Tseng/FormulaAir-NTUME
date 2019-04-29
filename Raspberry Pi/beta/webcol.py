@@ -3,7 +3,7 @@ import numpy as np
 import cv2
 
 cap = cv2.VideoCapture(0)
-name = '0422image'
+name = '0422im2age'
 
 i = 1
 
