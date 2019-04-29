@@ -10,13 +10,13 @@ sys.path.append(os.path.abspath('..'))
 from config import config
 
 class arduino:
-	ser = serial.Serial(config.DEVNAME, 9600)
+	ser = serial.Serial('/dev/ttyACM0', 9600)
 	def __init__(self):
 		print('Arduino Serial Communication Starts!')
 
 	def sendmsg(self,msg):
 		msg_encode = msg.encode()
-		ser.write(msg_encode)
+		self.ser.write(msg_encode)
 
 	def readmsg(self):
 		j1 = threading.Thread(target=self.waitmsg, daemon=True, args=())
@@ -27,7 +27,7 @@ class arduino:
 	def waitmsg(self):
 		while True:
 			if(ser.in_waiting >0):
-				line = ser.readline()
+				line = self.ser.readline()
 				if line in config.cmdlist:
 					return line
 
