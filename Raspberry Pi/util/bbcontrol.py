@@ -27,5 +27,5 @@ class control:
 		d = np.abs(pts - np.median(pts))
 		mdev = np.median(d)
 		s = d/(mdev if mdev else 1.)
-		return pts[s<m]
+		return pts[s<mdev]
 
