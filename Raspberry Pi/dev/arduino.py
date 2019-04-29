@@ -3,6 +3,8 @@
 
 import serial
 import threading
+import sys 
+import os
 
 sys.path.append(os.path.abspath('..'))
 from config import config
