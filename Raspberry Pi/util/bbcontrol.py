@@ -24,7 +24,7 @@ class control:
 		return lev
 
 	def outlier_reject(self, pts,tol = 2.):
-		d = np.abs(data - np.median(data))
+		d = np.abs(pts - np.median(pts))
 		mdev = np.median(d)
 		s = d/(mdev if mdev else 1.)
 		return data[s<m]
