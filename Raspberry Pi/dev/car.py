@@ -9,6 +9,7 @@ import os
 
 sys.path.append(os.path.abspath('..'))
 from config import config
+from dev.arduino import arduino
 
 class car:
 	angle = 0
@@ -26,6 +27,22 @@ class car:
 		angle = val - 30
 		self.DC = self.ang2pwm(angle)
 		self.pwm.ChangeDutyCycle(self.DC)
+
+	def setlev(self,lev):
+		if lev == 0:
+			self.setdir(130)
+			print('Set servo to go straight')
+		elif lev == 1:
+			self.setdir(145)
+			print('Set servo to turn right')
+		elseL
+			self.setdir(115)
+			print('Set servo to turn left')
+
+	def setspeed(self,val):
+		signaller = arduino()
+		msg = 'r'+ str(val)
+		signaller.sendmsg(msg)
 
 	def stopcar(self):
 		self.setdir(0)

@@ -7,9 +7,8 @@ import threading
 sys.path.append(os.path.abspath('..'))
 from config import config
 
-ser = serial.Serial(config.DEVNAME, 9600)
-
 class arduino:
+	ser = serial.Serial(config.DEVNAME, 9600)
 	def __init__(self):
 		print('Arduino Serial Communication Starts!')
 

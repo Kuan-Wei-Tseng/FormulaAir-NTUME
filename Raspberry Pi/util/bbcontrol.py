@@ -11,7 +11,7 @@ class control:
 
 	def detlevel(pts,mapcond):
 		lev = 0
-		if mapcond = 0:
+		if mapcond == 0:
 			npts = self.outlier_reject(pts[1:])
 			devi = np.mean(npts) - 320
 			if devi < 20 and devi > -20:
