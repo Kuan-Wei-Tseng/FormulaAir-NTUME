@@ -40,14 +40,14 @@ void loop(){
 		case 'i':
 			motorinit();
 			break;
+
 		case 's':
 			int val;
 			val = atoi(&com[1]);
-
 			setspeed(val);
 			break;
 		default:
-                  Serial.println('Invalid command.');
-                  break;
+			Serial.println('Invalid command.');
+			break;
 	}
 }
