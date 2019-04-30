@@ -27,7 +27,7 @@ class control:
 
 	def detlevel(self, pts, mapcond):
 		lev = 0
-		if mapcond == 0 and not maplocation(self,pts[1:]):
+		if mapcond == 0 and not self.maplocation(self,pts[1:]):
 			# npts = self.outlier_reject(pts[1:])
 			npts = pts[1:]
 			devi = np.mean(npts) - 320
@@ -38,7 +38,7 @@ class control:
 			else:
 				lev = 1
 
-		elif mapcond != 0 or maplocation(self,pts[1:]):
+		elif mapcond != 0 or self.maplocation(self,pts[1:]):
 			lev = -2
 			mapcond = 1
 
