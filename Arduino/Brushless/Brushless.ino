@@ -12,7 +12,7 @@ void setup(){
 	Serial.print("Ready for setting up Brushless Motor.");
 }
 
-void init(){
+void motorinit(){
 	Serial.print("Start initailizing Brushless Motor.\n");
 	Serial.print("Setting high speed! Wait 2 second! ");
 	Brushless1.write(180);
@@ -35,12 +35,13 @@ void loop(){
 	while(Serial.available()==0){}
 	ans = Serial.readString();
 	ans.toCharArray(com, 20);
-	switch(char[0]){
+	switch(com[0]){
 		case 'i':
-			init();
+			motorinit();
 			break;
 		case 's':
-			int val = atoi(&com[1]);
+			int val;
+			val = atoi(&com[1]);
 			setspeed(val);
 			break;
 		default:
