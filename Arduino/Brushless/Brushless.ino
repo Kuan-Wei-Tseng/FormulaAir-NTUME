@@ -41,4 +41,7 @@ void loop(){
 		val = atoi(&com[1]);
 		setspeed(val);
 	}
+	else if (com[0]=='i'){
+		motorinit();
+	}
 }
