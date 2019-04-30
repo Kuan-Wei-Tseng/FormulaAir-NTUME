@@ -18,6 +18,7 @@ class control:
 	def maplocation(self,pts):
 		self.lowindex = config.C1
 		self.uppindex = config.C2
+		print(pts)
 		lower = np.mean(pts[0:self.lowindex])
 		upper = np.mean(pts[self.lowindex:self.uppindex-1])
 		print(lower)
