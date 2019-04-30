@@ -35,6 +35,7 @@ void loop(){
 	while(Serial.available()==0){}
 	ans = Serial.readString();
 	ans.toCharArray(com, 20);
+	Serial.println(ans)
 	switch(com[0]){
 		case 'i':
 			motorinit();
