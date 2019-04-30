@@ -42,6 +42,7 @@ void loop(){
 		case 's':
 			int val;
 			val = atoi(&com[1]);
+			
 			setspeed(val);
 			break;
 		default:
