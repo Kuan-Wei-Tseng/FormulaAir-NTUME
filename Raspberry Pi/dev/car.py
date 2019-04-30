@@ -35,9 +35,12 @@ class car:
 		elif lev == 1:
 			self.setdir(98)
 			print('Set servo to turn right')
-		else:
+		elif lev == -1:
 			self.setdir(68)
 			print('Set servo to turn left')
+		else:
+			self.setdir(53)
+			print('Set servo to turn left: MAX')
 
 	def setspeed(self,val):
 		signaller = arduino()

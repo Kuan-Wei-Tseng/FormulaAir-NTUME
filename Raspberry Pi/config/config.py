@@ -4,9 +4,12 @@ import numpy as np
 
 RES = [640,480]
 # Number of slices in the Image:
-NUMofCUT = 10
+C1 = 10
+C2 = 5
+NUMofCUT = C1+C2
 # Gives an array of the slices' x coordinate.
-CUTHEIGHT = np.linspace(RES[1]-10,20,num = NUMofCUT).astype(int)
+CUTHEIGHT = np.linspace(RES[1]-10,RES[1]/2,num = C1).astype(int)
+np.append(CUTHEIGHT,np.linspace(RES[1]/2,20,num = C2).astype(int))
 # Percentage of tolerance when detecting unexpected points:
 tol = 0.3 * RES[0]
 CENTER = int(RES[0]/2)

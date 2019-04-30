@@ -4,15 +4,30 @@ Class definition for control system
 
 '''
 import numpy as np
+import sys
+import os
+
+sys.path.append(os.path.abspath('..'))
+from config import config
 
 class control:
 
 	def __init__(self):
 		print('Controller initialized!')
 
+	def maplocation(self,pts):
+		self.lowindex = config.C1
+		self.uppindex = config.C2
+		lower = np.mean(pts[0:C1])
+		upper = np.mean(pts[C1:C2-1])
+		if lower < 320 and abs(upper-lower) > 150:
+			return True
+		else:
+			return False
+
 	def detlevel(self, pts, mapcond):
 		lev = 0
-		if mapcond == 0:
+		if mapcond == 0 and not maplocation(self,pts[1:]):
 			# npts = self.outlier_reject(pts[1:])
 			npts = pts[1:]
 			devi = np.mean(npts) - 320
@@ -22,7 +37,12 @@ class control:
 				lev = -1
 			else:
 				lev = 1
-		return lev
+
+		elif mapcond != 0 or maplocation(self,pts[1:]):
+			lev = -2
+			mapcond = 1
+
+		return lev,mapcond
 
 	def outlier_reject(self, pts,tol = 20.):
 		d = np.abs(pts - np.median(pts))
