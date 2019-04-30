@@ -22,6 +22,7 @@ class control:
 		lower = np.mean(pts[0:self.lowindex])
 		upper = np.mean(pts[self.lowindex:self.uppindex-1])
 		print(lower)
+		print(upper)
 		print(upper-lower)
 		if lower < 100 and abs(upper-lower) > 150:
 			return True
