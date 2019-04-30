@@ -35,7 +35,7 @@ class control:
 		if mapcond == 0 and not self.maplocation(pts[1:]):
 			# npts = self.outlier_reject(pts[1:])
 			npts = pts[1:]
-			devi = np.mean(npts) - 320
+			devi = np.mean(npts) - 300
 			if devi < 40 and devi > -40:
 				lev = 0
 			elif devi < -40:
