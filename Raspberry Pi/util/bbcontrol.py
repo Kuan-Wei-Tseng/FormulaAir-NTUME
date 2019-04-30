@@ -21,6 +21,7 @@ class control:
 		print(pts)
 		lower = np.mean(pts[0:self.lowindex])
 		upper = np.mean(pts[self.lowindex:self.uppindex-1])
+		print(pts[self.lowindex:self.uppindex-1])
 		print(lower)
 		print(upper)
 		print(upper-lower)
