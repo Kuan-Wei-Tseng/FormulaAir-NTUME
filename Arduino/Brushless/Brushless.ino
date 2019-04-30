@@ -35,8 +35,7 @@ void loop(){
 	while(Serial.available()==0){}
 	ans = Serial.readString();
 	ans.toCharArray(com, 20);
-	Serial.println(ans);
-	Serial.println(com);
+	Serial.println(com[0]);
 	switch(com[0]){
 		case 'i':
 			motorinit();
@@ -48,6 +47,7 @@ void loop(){
 			setspeed(val);
 			break;
 		default:
-		Serial.println('Invalid command.');
+                  Serial.println('Invalid command.');
+                  break;
 	}
 }
