@@ -26,7 +26,7 @@ class control:
 		print(upper)
 		print(upper-lower)
 		if lower < 100 and abs(upper-lower) > 150:
-			return True
+			return False
 		else:
 			return False
 
