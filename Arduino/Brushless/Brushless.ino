@@ -36,19 +36,19 @@ void loop(){
 	ans = Serial.readString();
 	ans.toCharArray(com, 20);
 	Serial.println(com[0]);
-	if(com[0]=='s'){Serial.println('dshjkghsgjhdskghs');}
+	if(com[0]!='s'){Serial.println("dshjkghsgjhdskghs");}
 	switch(com[0]){
-		case "i":
+		case 'i':
 			motorinit();
 			break;
 
-		case "s":
+		case 's':
 			int val;
 			val = atoi(&com[1]);
 			setspeed(val);
 			break;
 		default:
-			Serial.println('Invalid command.');
+			Serial.println("Invalid command.");
 			break;
 	}
 }
