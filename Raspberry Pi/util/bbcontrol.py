@@ -20,7 +20,7 @@ class control:
 		self.uppindex = config.C2
 		lower = np.mean(pts[0:self.lowindex])
 		upper = np.mean(pts[self.lowindex:self.uppindex-1])
-		if lower < 320 and abs(upper-lower) > 150:
+		if lower < 100 and abs(upper-lower) > 150:
 			return True
 		else:
 			return False
