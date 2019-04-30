@@ -6,7 +6,7 @@ void setup(){
 
 void loop(){
   if(Serial.available()){
-    r = (Serial.read() - '0');
-    Serial.println(r);
+    r = Serial.read();
+    Serial.println(char(r));
   }
 }

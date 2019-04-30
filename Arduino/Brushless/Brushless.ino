@@ -16,15 +16,15 @@ void init(){
 	Serial.print("Start initailizing Brushless Motor.\n");
 	Serial.print("Setting high speed! Wait 2 second! ");
 	Brushless1.write(180);
-	delay(2000)
+	delay(2000);
 	Serial.print("Setting low speed! Wait 4 sec! ");
 	Brushless1.write(5);
-	delay(4000)
+	delay(4000);
 	Serial.print("MOTOR IS READY! ");
 }
 
 void setspeed(int val){
-	print('Arduino Setspeed!')
+	Serial.print('Arduino Setspeed!');
 	Brushless1.write(val);
 }
 
@@ -44,6 +44,6 @@ void loop(){
 			setspeed(val);
 			break;
 		default:
-		Serial.println('Invalid command.')
+		Serial.println('Invalid command.');
 	}
 }
