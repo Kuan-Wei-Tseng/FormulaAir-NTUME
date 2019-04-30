@@ -40,9 +40,10 @@ class core:
 			self.myFinder = findline(img)
 			self.pts,self.mimg = self.myFinder.detectline()
 			print(self.pts)
-			counter = counter + 1
-			if counter > 20:
-				break
+			dev = self.mycontrol.detlevel(self.pts,self.maploc)
+			print(dev)
+			self.mycar.setlev(dev)
+			self.mimg = self.myFinder.markline(self.pts)
 
 	def demonstration(self):
 		time.sleep(2)
