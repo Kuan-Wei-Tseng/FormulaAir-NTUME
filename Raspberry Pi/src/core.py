@@ -60,7 +60,7 @@ class core:
 			self.mimg = self.myFinder.markline(self.pts)
 			
 			cv2.imshow('demo',self.mimg)
-			if cv2.waitKey(100) == 27:
+			if cv2.waitKey(10) == 27:
 				break
 			#x = input('Save the image?')
 			counter = counter + 1
