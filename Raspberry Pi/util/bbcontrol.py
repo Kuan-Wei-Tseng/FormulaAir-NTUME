@@ -33,9 +33,9 @@ class control:
 	def detlevel(self, pts, mapcond):
 		lev = 0
 		if mapcond == 0 and not self.maplocation(pts[1:]):
-			# npts = self.outlier_reject(pts[1:])
+			npts = self.outlier_reject(pts[1:])
 			npts = pts[1:]
-			devi = np.mean(npts) - 300
+			devi = np.mean(npts) - 280
 			if devi < 40 and devi > -40:
 				lev = 0
 			elif devi < -40:
@@ -49,9 +49,12 @@ class control:
 
 		return lev,mapcond
 
-	def outlier_reject(self, pts,tol = 20.):
-		d = np.abs(pts - np.median(pts))
-		mdev = np.median(d)
-		s = d/(mdev if mdev else 1.)
-		return pts[s<tol]
+	def outlier_reject(self,pts,tol = 1):
+		cpts = np.copy(pts)
+		s = np.std(pts)
+		m = np.mean(x)
+		z = (x-m)/s
+		index = np.where(abs(y)>1)
+		cpts = np.delete(cpts,index)
+		return cpts
 

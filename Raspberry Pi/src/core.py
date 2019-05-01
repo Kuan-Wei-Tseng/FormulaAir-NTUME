@@ -36,6 +36,7 @@ class core:
 		time.sleep(2)
 		counter = 0
 		while True:
+			self.maploc = 0
 			img = self.myCamera.capture()
 			self.myFinder = findline(img)
 			self.pts,self.mimg = self.myFinder.detectline()
@@ -59,7 +60,7 @@ class core:
 			self.mimg = self.myFinder.markline(self.pts)
 			
 			cv2.imshow('demo',self.mimg)
-			if cv2.waitKey(0) == 27:
+			if cv2.waitKey(100) == 27:
 				break
 			#x = input('Save the image?')
 			counter = counter + 1
