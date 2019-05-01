@@ -26,7 +26,7 @@ class control:
 		lowvect = np.diff(pts[0:self.lowindex])
 		lowvectmean  = np.mean(lowvect)
 		print("lowvec")
-		print(lowvec)
+		print(lowvect)
 		#print(pts[self.lowindex:self.uppindex-1])
 		#print(lower)
 		#print(upper)
