@@ -53,8 +53,8 @@ class control:
 		cpts = np.copy(pts)
 		s = np.std(pts)
 		m = np.mean(pts)
-		z = (x-m)/s
-		index = np.where(abs(y)>1)
+		z = (pts-m)/s
+		index = np.where(abs(z)>1)
 		cpts = np.delete(cpts,index)
 		return cpts
 
