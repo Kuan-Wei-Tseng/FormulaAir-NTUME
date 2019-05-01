@@ -52,7 +52,7 @@ class control:
 	def outlier_reject(self,pts,tol = 1):
 		cpts = np.copy(pts)
 		s = np.std(pts)
-		m = np.mean(x)
+		m = np.mean(pts)
 		z = (x-m)/s
 		index = np.where(abs(y)>1)
 		cpts = np.delete(cpts,index)
