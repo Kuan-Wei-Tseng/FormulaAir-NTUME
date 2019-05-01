@@ -18,13 +18,19 @@ class control:
 	def maplocation(self,pts):
 		self.lowindex = config.C1
 		self.uppindex = config.C2 + self.lowindex
-		print(pts)
 		lower = np.mean(pts[0:self.lowindex])
 		upper = np.mean(pts[self.lowindex:self.uppindex-1])
-		print(pts[self.lowindex:self.uppindex-1])
-		print(lower)
-		print(upper)
-		print(upper-lower)
+		print("lower")
+		print(pts[0:self.lowindex])
+
+		lowvect = np.diff(pts[0:self.lowindex])
+		lowvectmean  = np.mean(lowvect)
+		print("lowvec")
+		print(lowvec)
+		#print(pts[self.lowindex:self.uppindex-1])
+		#print(lower)
+		#print(upper)
+		#print(upper-lower)
 		if lower < 100 and abs(upper-lower) > 150:
 			return False
 		else:
