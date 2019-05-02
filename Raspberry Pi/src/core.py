@@ -33,6 +33,8 @@ class core:
 		#cv2.imwrite('test.bmp',img)
 
 	def run(self):
+		t0 = time.perf_counter()
+		tt = 0
 		time.sleep(2)
 		counter = 0
 		while True:
@@ -44,6 +46,10 @@ class core:
 			dev = self.mycontrol.detlevel(self.pts,self.maploc)
 			print(dev)
 			self.mycar.setlev(dev)
+			deltat = time.perf_counter()-t0
+			tt = tt + deltat
+			print("total time: %f" %t)
+
 			# self.mimg = self.myFinder.markline(self.pts)
 
 	def demonstration(self):
