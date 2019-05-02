@@ -78,6 +78,7 @@ class core:
 			self.mimg = self.myFinder.markline(self.pts)
 			deltat = time.perf_counter()-t0
 			tt = tt + deltat
+			print(tt)
 			cv2.imshow('demo',self.mimg)
 			if cv2.waitKey(10) == 27:
 				break
