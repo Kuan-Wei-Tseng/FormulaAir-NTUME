@@ -11,7 +11,7 @@ print("Initialization ")
 time.sleep(6)
 while True:
 	x = input('Input the speed')
-
+	x = int(x)
 	if x >= 120:
 		a.sendmsg("s60")
 		time.sleep(2)
