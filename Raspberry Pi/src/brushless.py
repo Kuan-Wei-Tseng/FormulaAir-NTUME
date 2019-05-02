@@ -11,7 +11,12 @@ print("Initialization ")
 time.sleep(6)
 while True:
 	x = input('Input the speed')
-	y = "s"+str(x)
-	a.sendmsg(y)
-	time.sleep(2)
 
+	if x >= 120:
+		a.sendmsg("s60")
+		time.sleep(2)
+		a.sendmsg("s80")
+		time.sleep(2)
+		a.sendmsg("s100")
+		time.sleep(2)
+		a.sendmsg("s120")
