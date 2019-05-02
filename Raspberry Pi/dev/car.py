@@ -39,7 +39,11 @@ class car:
 			self.setdir(78)
 			print('Set servo to turn left')
 		else:
-			self.setdir(60)
+			for i in range(0,10):
+				self.setdir(60)
+				print("Turning Left!!!")
+				time.sleep(0.1)
+
 			print('Set servo to turn left: MAX')
 
 	def setspeed(self,val):

@@ -54,10 +54,6 @@ class control:
 			lev = 2
 			mapcond = 1
 			print("Find Sharp turn")
-			for i in range(0,10):
-				print("Turning Left!!!")
-				time.sleep(0.1)
-
 
 		return lev
 
