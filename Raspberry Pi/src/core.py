@@ -88,7 +88,7 @@ class core:
 		while True:
 			img = self.myCamera.capture()
 			fname = '/home/pi/Desktop/obstacle' + str(counter) + '.bmp'
-			cv2.imshow('demo',self.img)
+			cv2.imshow('demo',img)
 			if cv2.waitKey(0) == 27:
 				break
 			x = input('Save the image?')
