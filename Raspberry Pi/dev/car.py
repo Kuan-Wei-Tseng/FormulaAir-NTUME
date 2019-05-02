@@ -30,16 +30,16 @@ class car:
 
 	def setlev(self,lev):
 		if lev == 0:
-			self.setdir(83)
+			self.setdir(88)
 			print('Set servo to go straight')
 		elif lev == 1:
 			self.setdir(98)
 			print('Set servo to turn right')
 		elif lev == -1:
-			self.setdir(68)
+			self.setdir(78)
 			print('Set servo to turn left')
 		else:
-			self.setdir(53)
+			self.setdir(60)
 			print('Set servo to turn left: MAX')
 
 	def setspeed(self,val):

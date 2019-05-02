@@ -51,11 +51,11 @@ class control:
 				lev = 1
 
 		elif mapcond == 1:
-			lev = -1
+			lev = 2
 			mapcond = 1
 			print("Find Sharp turn")
 			for i in range(0,10):
-				print("Turning Right!!!")
+				print("Turning Left!!!")
 				time.sleep(0.1)
 
 
