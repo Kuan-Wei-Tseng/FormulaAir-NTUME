@@ -43,6 +43,8 @@ class core:
 			self.myFinder = findline(img)
 			self.pts,self.mimg, self.maploc = self.myFinder.detectline()
 			print(self.pts)
+			if tt < 1000:
+				self.maploc = 0
 			dev = self.mycontrol.detlevel(self.pts,self.maploc)
 			print(dev)
 			self.mycar.setlev(dev)
