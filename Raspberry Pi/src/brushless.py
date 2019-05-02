@@ -10,21 +10,35 @@ a.sendmsg("i")
 print("Initialization ")
 time.sleep(6)
 while True:
-	x = input('Input the speed')
+	x = input('Input command')
 	x = int(x)
 
 	if x <= 10:
 		a.sendmsg("s10")
 		time.sleep(2)
-
-	if x >= 80:
+	else:
 		a.sendmsg("s60")
-		time.sleep(2)
+		print("Set speed to 60.")
+		for i in range(0,2):
+			print(i)
+			time.sleep(1)
 		a.sendmsg("s80")
-		time.sleep(2)
-		if x >= 100:
-			a.sendmsg("s100")
-			time.sleep(2)
-			if x >= 120:
-				a.sendmsg("s120")
-				time.sleep(0)
+		print("Set speed to 80.")
+		for i in range(0,3):
+			print(i)
+			time.sleep(1)
+		a.sendmsg("s100")
+		print("Set speed to 100.")
+		for i in range(0,2):
+			print(i)
+			time.sleep(1)		
+		a.sendmsg("s120")
+		print("Set speed to 120.")
+		for i in range(0,2):
+			print(i)
+			time.sleep(1)
+		a.sendmsg("s100")
+		print("Set speed to 100.")
+		for i in range(0,2):
+			print(i)
+			time.sleep(1)		
