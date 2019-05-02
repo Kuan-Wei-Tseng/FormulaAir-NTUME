@@ -62,7 +62,7 @@ class findline:
 						print('Safe')
 			elif len(points[0]) == 1 and points[0][0] < 50:
 				print("Detect potential sharp turn??")
-				self.shartturn = 1
+				self.sharpturn = 1
 
 			else:
 				self.needcheck = True
