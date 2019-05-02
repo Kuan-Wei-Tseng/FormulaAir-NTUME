@@ -42,7 +42,7 @@ class control:
 		if mapcond == 0:
 			npts = self.outlier_reject(pts[1:])
 			npts = pts[1:]
-			devi = np.mean(npts) - 380
+			devi = np.mean(npts) - 360
 			if devi < 40 and devi > -20:
 				lev = 0
 			elif devi < -40:

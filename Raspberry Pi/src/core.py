@@ -49,6 +49,8 @@ class core:
 				self.maploc = 0
 			dev = self.mycontrol.detlevel(self.pts,self.maploc)
 			print(dev)
+			if tt < 300:
+				dev = 0
 			self.mycar.setlev(dev)
 			deltat = time.perf_counter()-t0
 			tt = tt + deltat
