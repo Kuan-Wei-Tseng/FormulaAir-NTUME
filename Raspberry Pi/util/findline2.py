@@ -25,6 +25,7 @@ class findline:
 		# print('cut:',self.xs)
 		self.tol = config.tol
 		self.CENTER = config.CENTER
+		self.sharpturn = 0
 
 	def detectline(self, stdev=300):
 		t0 = time.perf_counter()
@@ -59,6 +60,9 @@ class findline:
 						Rpt = points[0][1]
 						midpoint = int((points[0][0] + points[0][1]) / 2)
 						print('Safe')
+			elif len(points[0]) == 1 and points[0][0] < 50:
+				print("Detect potential sharp turn??")
+				self.shartturn = 1
 
 			else:
 				self.needcheck = True
@@ -106,11 +110,13 @@ class findline:
 			'''
 
 		print (time.perf_counter()-t0)
-		return self.midpoints, self._img
+		return self.midpoints, self._img, self.shartturn
 
 	def markline(self,pts):
-		for i in range(0,self.num):
-			h = self.xs[i]
+		for i in range(1,self.num):
+			h = self.xs[i-1]
+			if i>1 and self.xs[i-2] == h:
+				continue
 			midpoint = pts[i]
 			cv2.circle(self._img, (midpoint, h), 8, (0,255,0), -1)
 

@@ -39,9 +39,9 @@ class core:
 			self.maploc = 0
 			img = self.myCamera.capture()
 			self.myFinder = findline(img)
-			self.pts,self.mimg = self.myFinder.detectline()
+			self.pts,self.mimg, self.maploc = self.myFinder.detectline()
 			print(self.pts)
-			dev,self.maploc = self.mycontrol.detlevel(self.pts,self.maploc)
+			dev = self.mycontrol.detlevel(self.pts,self.maploc)
 			print(dev)
 			self.mycar.setlev(dev)
 			# self.mimg = self.myFinder.markline(self.pts)
@@ -52,9 +52,9 @@ class core:
 		while True:
 			img = self.myCamera.capture()
 			self.myFinder = findline(img)
-			self.pts,self.mimg = self.myFinder.detectline()
+			self.pts,self.mimg, self.maploc = self.myFinder.detectline()
 			#print(self.pts)
-			dev,self.maploc = self.mycontrol.detlevel(self.pts,self.maploc)
+			dev = self.mycontrol.detlevel(self.pts,self.maploc)
 			#print(dev)
 			self.mycar.setlev(dev)
 			self.mimg = self.myFinder.markline(self.pts)

@@ -6,6 +6,7 @@ Class definition for control system
 import numpy as np
 import sys
 import os
+import time
 
 sys.path.append(os.path.abspath('..'))
 from config import config
@@ -38,7 +39,7 @@ class control:
 
 	def detlevel(self, pts, mapcond):
 		lev = 0
-		if mapcond == 0 and not self.maplocation(pts[1:]):
+		if mapcond == 0:
 			npts = self.outlier_reject(pts[1:])
 			npts = pts[1:]
 			devi = np.mean(npts) - 280
@@ -49,9 +50,12 @@ class control:
 			else:
 				lev = 1
 
-		elif mapcond != 0 or self.maplocation(pts[1:]):
+		elif mapcond:
 			lev = -2
 			mapcond = 1
+			print("Find Sharp turn")
+			time.sleep(1)
+
 
 		return lev,mapcond
 

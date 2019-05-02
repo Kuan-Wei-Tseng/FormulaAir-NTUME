@@ -16,4 +16,8 @@ from util.findline2 import findline
 
 worker = findline(img)
 pts,img = worker.detectline()
-worker.markline(pts)
+print(pts)
+mimg = worker.markline(pts)
+cv2.imshow('viewer',mimg)
+cv2.waitKey(0)
+
