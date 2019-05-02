@@ -27,7 +27,7 @@ class core:
 			self.demonstration()
 		elif mode == 1:
 			self.run()
-		else
+		else:
 			self.saveimg()
 		
 		#time.sleep(1)
