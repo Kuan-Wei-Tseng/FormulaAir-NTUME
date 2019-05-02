@@ -39,7 +39,7 @@ class car:
 			self.setdir(78)
 			print('Set servo to turn left')
 		else:
-			for i in range(0,10):
+			for i in range(0,50):
 				self.setdir(60)
 				print("Turning Left!!!")
 				time.sleep(0.1)
