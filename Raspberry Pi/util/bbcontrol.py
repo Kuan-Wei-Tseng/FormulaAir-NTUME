@@ -51,7 +51,7 @@ class control:
 				lev = 1
 
 		elif mapcond:
-			lev = -2
+			lev = -1
 			mapcond = 1
 			print("Find Sharp turn")
 			time.sleep(1)
