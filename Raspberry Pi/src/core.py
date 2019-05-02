@@ -48,7 +48,7 @@ class core:
 			self.mycar.setlev(dev)
 			deltat = time.perf_counter()-t0
 			tt = tt + deltat
-			print("total time: %f" %t)
+			print("total time: %f" %tt)
 
 			# self.mimg = self.myFinder.markline(self.pts)
 
