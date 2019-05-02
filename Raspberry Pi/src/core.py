@@ -23,10 +23,12 @@ class core:
 		self.mycar = car()
 		self.mycontrol = control()
 		
-		if not mode:
+		if mode == 2:
 			self.demonstration()
-		else:
+		elif mode == 1:
 			self.run()
+		else
+			self.saveimg()
 		
 		#time.sleep(1)
 		#img = self.myCamera.capture()
@@ -78,8 +80,22 @@ class core:
 			if x == '1':
 				cv2.imwrite(fname,img)
 			'''
-			
 		cv2.destroyAllWindows()
+
+	def saveimg(self):
+		time.sleep(2)
+		counter = 0
+		while True:
+			img = self.myCamera.capture()
+			x = input('Save the image?')
+			fname = '/home/pi/Desktop/debugimg' + str(counter) + '.bmp'
+			cv2.imshow('demo',self.mimg)
+			if cv2.waitKey(0) == 27:
+				break
+			if x == '1':
+				cv2.imwrite(fname,img)
+				counter = counter + 1
+
 
 
 

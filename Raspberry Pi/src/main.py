@@ -7,11 +7,12 @@ import sys
 def main(mode):
 	input("press ENTER to start:")
 	if mode == "run":
-		runner = core(True)
+		runner = core(1)
 	elif mode == "demo":
-		runner = core(False)
+		runner = core(2)
 	else:
 		print("To run or to demonstrate??")
+		runner = core(3)
 	return
 
 if __name__ == "__main__":
