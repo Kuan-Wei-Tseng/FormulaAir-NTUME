@@ -12,11 +12,19 @@ time.sleep(6)
 while True:
 	x = input('Input the speed')
 	x = int(x)
-	if x >= 120:
+
+	if x <= 10:
+		a.sendmsg("s10")
+		time.sleep(2)
+
+	if x >= 80:
 		a.sendmsg("s60")
 		time.sleep(2)
 		a.sendmsg("s80")
 		time.sleep(2)
-		a.sendmsg("s100")
-		time.sleep(2)
-		a.sendmsg("s120")
+		if x >= 100:
+			a.sendmsg("s100")
+			time.sleep(2)
+			if x >= 120:
+				a.sendmsg("s120")
+				time.sleep(0)
