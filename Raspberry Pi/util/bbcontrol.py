@@ -50,14 +50,14 @@ class control:
 			else:
 				lev = 1
 
-		elif mapcond:
+		elif mapcond == 1:
 			lev = -1
 			mapcond = 1
 			print("Find Sharp turn")
 			time.sleep(1)
 
 
-		return lev,mapcond
+		return lev
 
 	def outlier_reject(self,pts,tol = 1):
 		cpts = np.copy(pts)
