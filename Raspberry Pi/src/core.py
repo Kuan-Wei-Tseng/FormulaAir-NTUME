@@ -39,16 +39,13 @@ class core:
 		tt = 0
 		time.sleep(2)
 		counter = 0
-		lockban = 0
 		while True:
 			self.maploc = 0
 			img = self.myCamera.capture()
 			self.myFinder = findline(img)
 			self.pts,self.mimg, self.maploc = self.myFinder.detectline()
-			if self.maploc == 1:
-				lockban = 1
 			print(self.pts)
-			if tt < 10000 or lockban == 1:
+			if tt < 10000
 				self.maploc = 0
 			dev = self.mycontrol.detlevel(self.pts,self.maploc)
 			print(dev)
