@@ -87,11 +87,11 @@ class core:
 		counter = 0
 		while True:
 			img = self.myCamera.capture()
-			x = input('Save the image?')
 			fname = '/home/pi/Desktop/obstacle' + str(counter) + '.bmp'
-			cv2.imshow('demo',self.mimg)
+			cv2.imshow('demo',self.img)
 			if cv2.waitKey(0) == 27:
 				break
+			x = input('Save the image?')
 			if x == '1':
 				cv2.imwrite(fname,img)
 				counter = counter + 1
