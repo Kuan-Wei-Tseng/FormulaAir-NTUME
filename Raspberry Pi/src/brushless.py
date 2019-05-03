@@ -4,11 +4,15 @@ import os
 
 sys.path.append(os.path.abspath('..'))
 from dev.arduino import arduino
+m = sys.argv[1]
+
 
 a = arduino()
-a.sendmsg("i")
-print("Initialization ")
-time.sleep(6)
+if m == '1':
+	a.sendmsg("i")
+	print("Initialization ")
+	time.sleep(6)
+
 while True:
 
 	a.sendmsg("s60")
