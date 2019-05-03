@@ -30,9 +30,9 @@ while True:
 	while True:
 		#y = input('Input Target Speed:')
 		# cmd = "s" + y
-		a.sendmsg("s115")
-		print("set 120")
-		time.sleep(2)
 		a.sendmsg("s110")
 		print("set 110")
+		time.sleep(2)
+		a.sendmsg("s105")
+		print("set 105")
 		time.sleep(2)
