@@ -19,26 +19,16 @@ while True:
 	else:
 		a.sendmsg("s60")
 		print("Set speed to 60.")
-		for i in range(0,2):
+		for i in range(0,3):
 			print(i)
 			time.sleep(1)
 		a.sendmsg("s80")
 		print("Set speed to 80.")
-		for i in range(0,3):
+		for i in range(0,4):
 			print(i)
 			time.sleep(1)
-		a.sendmsg("s100")
-		print("Set speed to 100.")
-		for i in range(0,2):
-			print(i)
-			time.sleep(1)		
-		a.sendmsg("s120")
-		print("Set speed to 120.")
-		for i in range(0,6):
-			print(i)
-			time.sleep(1)
-		a.sendmsg("s110")
-		print("Set speed to 110.")
-		for i in range(0,2):
-			print(i)
-			time.sleep(1)		
+		while True:
+			y = input('Input Target Speed:')
+			cmd = "s" + y
+			a.sendmsg(cmd)
+			time.sleep(2)
